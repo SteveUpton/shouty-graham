@@ -16,12 +16,8 @@ TweetStream.configure do |config|
   config.auth_method        = :oauth
 end
 
-# 281615153 Actual Graham
-
-# 1401150828 test272637 
-
 TweetStream::Client.new.follow(1401150828, 281615153) do |status|
-  shoutytweet = status.text.upcase	# Shoutify
-  shoutytweet.slice! "@"			# Strip out @s
-  Twitter.update(shoutytweet)		# Tweet
+  shoutytweet = status.text.upcase  # Shoutify
+  shoutytweet.slice! "@"            # Strip out @s
+  Twitter.update(shoutytweet)       # Tweet
 end
