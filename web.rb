@@ -1,5 +1,5 @@
 require 'twitter'
-require 'TweetStream'
+require 'tweetstream'
 
 Twitter.configure do |config|
   config.consumer_key = ENV['sg_consumer_key']
@@ -20,7 +20,7 @@ end
 
 # 1401150828 test272637 
 
-TweetStream::Client.new.follow(1401150828) do |status|
+TweetStream::Client.new.follow(1401150828, 281615153) do |status|
   shoutytweet = status.text.upcase	# Shoutify
   shoutytweet.slice! "@"			# Strip out @s
   Twitter.update(shoutytweet)		# Tweet
